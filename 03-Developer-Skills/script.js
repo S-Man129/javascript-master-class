@@ -54,7 +54,7 @@ console.log(calcTempAmplitudeNew([9, 5, 7, 3, 10], [8, 2, 4, 6, 1]));
 
 // Debugging
 // A code to convert degree celcius to degree kelvin
-
+/*
 const objectkelvin = {
   type: 'temperature',
   unit: 'celcius',
@@ -76,6 +76,33 @@ const convertKelvin = function (value) {
 
 // 1) IDENTIFY THE BUG
 convertKelvin(objectkelvin.value);
-
+*/
 /////////////////////////////////
-// Challenge #1
+// Coding Challenge #1 -  Developer Skills & Editor Setup
+/**
+ Given an array of forecasted maximum temperatures, the thermometer displays a 
+string with the given temperatures. Example: [17, 21, 23] will print "... 17ºC in 1 
+days ... 21ºC in 2 days ... 23ºC in 3 days ..." 
+Your tasks: 
+1. Create a function 'printForecast' which takes in an array 'arr' and logs a 
+string like the above to the console. Try it with both test datasets. 
+2. Use the problem-solving framework: Understand the problem and break it up 
+into sub-problems! 
+Test data: 
+§ Data 1: [17, 21, 23] 
+§ Data 2: [12, 5, -5, 0, 4]
+ */
+
+// Coding challenge #1 - Solution
+
+// declare a function printForecast with parameter arr
+const printForecast = function (arr) {
+  // Loop through the array and print each value of the array
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}ºC in ${i + 1} days ... `;
+  }
+  console.log('... ' + str);
+};
+
+printForecast([12, 5, -5, 0, 4]);
