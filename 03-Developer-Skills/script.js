@@ -94,7 +94,7 @@ Test data:
  */
 
 // Coding challenge #1 - Solution
-
+/*
 // declare a function printForecast with parameter arr
 const printForecast = function (arr) {
   // Loop through the array and print each value of the array
@@ -106,3 +106,102 @@ const printForecast = function (arr) {
 };
 
 printForecast([12, 5, -5, 0, 4]);
+*/
+// Test 2
+/*
+const printForecast = function (arr) {
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str = str + `${arr[i]}ºC in ${i + 1} days ... `;
+  }
+  console.log('... ' + str);
+};
+
+printForecast([12, 5, -5, 0, 4]);
+*/
+///////////////////////////////////
+// Coding Challenge #2
+/*
+    A TIME TRACKING APPLICATION FOR FREELANCERS
+
+    Let's say you're building a time tracking application for freelancers. At some point in building this app, you need a function that receives daily work hours for a certain week, and returns:
+    1. Total hours worked
+    2. Average daily hours
+    3. The day with the most hours worked
+    4. Number of days worked
+    5. Whether the week was full-time (worked 35 hours or more)
+
+    TEST DATA: [7.5, 8, 6.5, 0, 8.5, 4, 0]
+*/
+/*
+let totalHoursWorked = 0;
+let aveDailyHours;
+
+const dailyWorkHours = function (week) {
+  let max = week[0];
+  for (let i = 0; i < week.length; i++) {
+    totalHoursWorked += week[i];
+    // console.log(week[i]);
+    if (week[i] > max) max = week[i];
+    if (week[i] !== 0) {
+      let workedDays = week.length;
+      console.log(workedDays);
+    }
+  }
+
+  aveDailyHours = totalHoursWorked / week.length;
+  console.log(totalHoursWorked, aveDailyHours, max);
+};
+
+dailyWorkHours([7.5, 8, 6.5, 0, 8.5, 4, 0]);
+*/
+function analyzeWorkWeek(dailyHours) {
+  if (!Array.isArray(dailyHours) || dailyHours.length !== 7) {
+    throw new Error(
+      'Input must be an array of exactly 7 numbers (one for each day of the week).'
+    );
+  }
+
+  const dayNames = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+
+  const totalHours = dailyHours.reduce((sum, hours) => sum + hours, 0);
+  const averageHours = +(totalHours / 7).toFixed(1);
+
+  let maxHours = 0;
+  let maxDayIndex = 0;
+  let daysWorked = 0;
+
+  dailyHours.forEach((hours, index) => {
+    if (hours > maxHours) {
+      maxHours = hours;
+      maxDayIndex = index;
+    }
+    if (hours > 0) {
+      daysWorked++;
+    }
+  });
+
+  return {
+    totalHours,
+    averageHours,
+    mostWorkedDay: dayNames[maxDayIndex],
+    daysWorked,
+    fullTime: totalHours >= 35,
+  };
+}
+
+const weeklyHours = [7.5, 8, 6.5, 0, 8.5, 5, 0];
+const analysis = analyzeWorkWeek(weeklyHours);
+console.log(analysis);
+
+const weeklyHours2 = [7.5, 8, 6.5, 0, 8.5];
+const analysis2 = analyzeWorkWeek(weeklyHours2);
+console.log(analysis2);
