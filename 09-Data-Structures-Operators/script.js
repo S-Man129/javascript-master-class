@@ -81,6 +81,11 @@ const restaurant = {
       `Order received! Your Order ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} would be delivered to ${address} at ${time}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Your pasta with ingredient ${ing1}, ${ing2} and ${ing3} is ready`
+    );
+  },
 };
 
 restaurant.orderDelivery({
@@ -127,6 +132,7 @@ const [i = 1, j = 1, k = 1] = [7, 9];
 console.log(i, j, k);
 */
 
+/*
 ///////////////////////////
 //Destructuring Object
 const { name, openingHours, categories } = restaurant;
@@ -159,3 +165,55 @@ const {
   fri: { open: o, close: c },
 } = restaurant.openingHours;
 console.log(o, c);
+
+*/
+
+//////////////////////////
+// Spread Operatir (...)
+const arr = [5, 6, 7];
+
+const newBadArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(newBadArr);
+
+const newGoodArr = [1, 2, ...arr];
+console.log(newGoodArr);
+
+// NOTE: The spread operator is a bit similar to destructuring.
+// 1. It takes all the element in an array and does not create a new variable
+// 2. It can only be use in places where we can otherwise write values seperated by comma's
+
+const newMenu = [...restaurant.mainMenu, 'Porridge'];
+// console.log(newMenu);
+
+// Copy Array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//Join 2 Array
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// The spread operators just doesn't works in arrays alone BUT it also works on iterables
+// Iterables - are arrays, strings, maps, sets but NOT Objects
+const str = 'Sulayman';
+const strLetters = [...str, ' ', 'A.'];
+console.log(...str);
+// NOTE: we can still only use the spread operator when building an array or when parsing value in to a function
+
+// Real World example
+const ingredient = [
+  // prompt("Let's make pasta! ingredient 1"),
+  // prompt('ingredient 2'),
+  // prompt('ingredient 3'),
+];
+
+//restaurant.orderPasta(...ingredient);
+
+// Objects - spread operator
+const newRestaurant = { founder: 'Adebayo', ...restaurant, yearFounded: 1980 };
+console.log(newRestaurant);
+
+//copyObject
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Calisto Mia';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
