@@ -52,12 +52,54 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open for 24 hours
+      close: 24,
+    },
+  },
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 1,
+    time = '18:40',
+    address,
+  }) {
+    console.log(
+      `Order received! Your Order ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} would be delivered to ${address} at ${time}`
+    );
+  },
 };
 
-//Destructuring
+restaurant.orderDelivery({
+  time: '20:30',
+  address: '5th Avenue, Tai-Solarin, Gwarimpa, Abuja',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelivery({
+  address: 'Zone 4, Obasanjo road, Dutse-Baupma',
+  // time: '18:40',
+  // mainIndex: 1,
+  starterIndex: 3,
+});
+
+/////////////////////////
+//Destructuring Array
+/*
 const arr = [2, 4, 6];
 const [a, b, c] = arr;
 console.log(a, b, c);
@@ -83,3 +125,37 @@ console.log(p, r, s);
 //Default values
 const [i = 1, j = 1, k = 1] = [7, 9];
 console.log(i, j, k);
+*/
+
+///////////////////////////
+//Destructuring Object
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+//Assigning variable to object
+const { name: newName, openingHours: hours, categories: tags } = restaurant;
+console.log(newName, hours, tags);
+
+//Object: Default value
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+//Mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 17, c: 5 };
+//{a,b} = obj; //Whenever you use a block, javascript thought you want to write a block expression. In destructing an object, you have to wrap it inside parenthesis
+({ a, b } = obj);
+console.log(a, b);
+
+//Nested Object
+const {
+  fri: { open, close },
+} = restaurant.openingHours;
+console.log(open, close);
+
+//Assigning new variables
+const {
+  fri: { open: o, close: c },
+} = restaurant.openingHours;
+console.log(o, c);
