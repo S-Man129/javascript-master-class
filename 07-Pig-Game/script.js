@@ -1,5 +1,15 @@
 'use strict';
 
+//////////////////////////
+// START PAGE SCRIPT
+document.addEventListener('DOMContentLoaded', function () {
+  const gameLevelAudio = new Audio('audio/game-level.wav');
+
+  gameLevelAudio.play();
+});
+/////////////////////////
+// MAIN GAME SCRIPT
+
 let score0El = document.getElementById('score--0');
 let score1El = document.getElementById('score--1');
 // score0El.textContent = 0;

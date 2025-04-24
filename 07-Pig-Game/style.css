@@ -36,6 +36,24 @@ main {
   display: flex;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  position: absolute;
+  font-size: 5rem;
+  top: 10rem;
+  color: #ddd;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
 .player {
   flex: 50%;
   padding: 9rem;
@@ -99,6 +117,32 @@ main {
   font-size: 3.5rem;
 }
 
+/* MODAL STYLE */
+.modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  font-size: 2rem;
+  padding: 5rem;
+  z-index: 10;
+  transition: all 0.5s;
+}
+
+.times {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  padding: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
 /* ABSOLUTE POSITIONED ELEMENTS */
 .btn {
   position: absolute;
@@ -127,6 +171,25 @@ main {
   font-size: 2.4rem;
   display: inline-block;
   margin-right: 0.7rem;
+}
+
+.btn-container {
+  display: flex;
+  position: relative;
+  width: 50rem;
+  height: 30rem;
+  background-color: #2f2f2f33;
+}
+
+.btn--start {
+  top: 4rem;
+}
+
+.btn--guide {
+  top: 12rem;
+}
+.btn--sound {
+  top: 20rem;
 }
 
 .btn--new {
@@ -168,4 +231,23 @@ main {
 
 .hidden {
   display: none;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(34, 34, 34, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+ol > li {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+ul {
+  margin-left: 20px;
+  list-style-type: disc;
+  margin-bottom: 10px;
 }

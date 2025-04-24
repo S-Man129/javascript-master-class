@@ -8,29 +8,47 @@
     <title>Pig Game</title>
   </head>
   <body>
-    <main>
-      <section class="player player--0 player--active">
-        <h2 class="name" id="name--0">Player 1</h2>
-        <p class="score" id="score--0">43</p>
-        <div class="current">
-          <p class="current-label">Current</p>
-          <p class="current-score" id="current--0">0</p>
-        </div>
-      </section>
-      <section class="player player--1">
-        <h2 class="name" id="name--1">Player 2</h2>
-        <p class="score" id="score--1">24</p>
-        <div class="current">
-          <p class="current-label">Current</p>
-          <p class="current-score" id="current--1">0</p>
-        </div>
-      </section>
+    <section>
+      <h1>Welcome to the Pig Game 🎲</h1>
 
-      <img src="dice-5.png" alt="Playing dice" class="dice" />
-      <button class="btn btn--new">🔄 New game</button>
-      <button class="btn btn--roll">🎲 Roll dice</button>
-      <button class="btn btn--hold">📥 Hold</button>
-    </main>
-    <script src="script.js"></script>
+      <div class="btn-container">
+        <button class="btn btn--start">🎮 Start Game</button>
+        <button class="btn btn--guide">🗒️ Instruction</button>
+        <button class="btn btn--sound">🔊 Sound</button>
+      </div>
+      <span class="overlay hidden"></span>
+      <div class="modal hidden">
+        <span class="times">&times;</span>
+        <span>
+          <h2>How to Play the Pig Game</h2>
+          <ol>
+            <li>Roll the Dice 🎲</li>
+            <ul>
+              <li>Click "Roll Dice" to roll a number between 1–6.</li>
+              <li>The number adds to your current score.</li>
+            </ul>
+            <li>Be Careful!</li>
+            <ul>
+              <li>
+                If you roll a 1, your current score resets to 0, and it's the
+                next player's turn.
+              </li>
+            </ul>
+            <li>Hold to Keep Score</li>
+            <ul>
+              <li>
+                Click "Hold" to add your current score to your total score and
+                end your turn.
+              </li>
+            </ul>
+            <li>Win the Game 🏆</li>
+            <ul>
+              <li>The first player to reach 100 points wins!</li>
+            </ul>
+          </ol>
+        </span>
+      </div>
+    </section>
+    <script src="main.js"></script>
   </body>
 </html>
