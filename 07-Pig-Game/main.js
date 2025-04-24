@@ -2,7 +2,7 @@
 
 const gameLevelAudio = new Audio('audio/game-level.wav');
 document.addEventListener('DOMContentLoaded', function () {
-  // gameLevelAudio.play();
+  gameLevelAudio.play();
 });
 
 let sound = gameLevelAudio.play();
