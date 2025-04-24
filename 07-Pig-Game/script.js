@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const gameLevelAudio = new Audio('audio/game-level.wav');
 
-  gameLevelAudio.play();
+  // gameLevelAudio.play();
 });
 /////////////////////////
 // MAIN GAME SCRIPT
@@ -24,6 +24,7 @@ let currentScore1 = document.getElementById('current--1');
 const btnNew = document.querySelector('.btn--new');
 const btnHold = document.querySelector('.btn--hold');
 const btnRoll = document.querySelector('.btn--roll');
+const btnHome = document.querySelector('.btn--home');
 
 let diceEl = document.querySelector('.dice');
 diceEl.classList.add('hidden');
@@ -94,3 +95,6 @@ btnHold.addEventListener('click', function () {
 });
 
 btnNew.addEventListener('click', resetGame);
+btnHome.addEventListener('click', function () {
+  location.href = 'index.html';
+});
