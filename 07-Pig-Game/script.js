@@ -96,5 +96,8 @@ btnHold.addEventListener('click', function () {
 
 btnNew.addEventListener('click', resetGame);
 btnHome.addEventListener('click', function () {
-  location.href = 'index.html';
+  const confirmHome = confirm('Do you want to go back home');
+  if (confirmHome == true) {
+    location.href = 'index.html';
+  }
 });
