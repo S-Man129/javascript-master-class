@@ -22,36 +22,12 @@
 //   'garlic',
 // ]);
 
-// // Data needed for first part of the section
-// const restaurant = {
-//   name: 'Classico Italiano',
-//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
-//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-//   openingHours: {
-//     thu: {
-//       open: 12,
-//       close: 22,
-//     },
-//     fri: {
-//       open: 11,
-//       close: 23,
-//     },
-//     sat: {
-//       open: 0, // Open 24 hours
-//       close: 24,
-//     },
-//   },
-// };
-
 const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  name: 'Sulayman Adebayo',
+  location: 'Abuja, Lagos, Port-Harcourt, Osun, Oyo, Benue',
+  categories: ['Local', 'Continental', 'Vegetarian', 'Foreign'],
+  starterMenu: ['Gizdodo', 'Bruschetta', 'Garlic Bread', 'Salad'],
+  mainMenu: ['Pizza', 'Fried-Rice', 'Jollof'],
 
   openingHours: {
     thu: {
@@ -86,8 +62,12 @@ const restaurant = {
       `Your pasta with ingredient ${ing1}, ${ing2} and ${ing3} is ready`
     );
   },
+  pizzaIngredient: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient, otherIngredients);
+  },
 };
 
+/*
 restaurant.orderDelivery({
   time: '20:30',
   address: '5th Avenue, Tai-Solarin, Gwarimpa, Abuja',
@@ -101,6 +81,84 @@ restaurant.orderDelivery({
   // mainIndex: 1,
   starterIndex: 3,
 });
+*/
+
+//////////////////////////////
+// Logical Assignment Operators
+const rest1 = {
+  name: 'thePlace',
+  // guestCapacity: 30,
+  guestCapacity: 0,
+};
+
+const rest2 = {
+  name: 'Domino',
+  // guestCapacity: 30,
+  owner: 'Jack Barrow',
+};
+
+// OR-Assignment operator
+// rest1.guestCapacity = rest1.guestCapacity || 10;
+// rest2.guestCapacity = rest2.guestCapacity || 10;
+
+// rest1.guestCapacity ||= 10; Logical OR-Assignment operator
+// rest2.guestCapacity ||= 10; Logical OR-Assignment operator
+
+// Nulllish Assignment Operator (Null or undefined)
+// rest1.guestCapacity ??= 10;
+// rest2.guestCapacity ??= 10;
+
+// Logical AND(&&)-Assignment Operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
+/*
+//////////////////////////
+// REST PATTERN and PARAMETERS
+// 1) Destructuring
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6, 7, 'segun'];
+console.log(a, b, others);
+console.log(...others); //Spread Operator
+
+const [pizza, friedRice, ...otherFoods] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, friedRice, otherFoods);
+
+// Objects - Rest pattern
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2) Function - Rest Pattern parameter
+const add = function (...number) {
+  // console.log(number);
+  let sum = 0;
+  for (let i = 0; i < number.length; i++) sum += number[i];
+  console.log(sum);
+};
+add(2, 4);
+add(1, 3, 5, 7, 9);
+add(2, 4, 6, 8, 10);
+
+const x = [23, 25, 27];
+console.log(...x);
+add(...x);
+
+restaurant.pizzaIngredient(
+  'mushrooms',
+  'spinnach',
+  'Potato',
+  'Tomato',
+  'Carrot'
+);
+*/
 
 /////////////////////////
 //Destructuring Array
@@ -165,11 +223,11 @@ const {
   fri: { open: o, close: c },
 } = restaurant.openingHours;
 console.log(o, c);
-
 */
 
+/*
 //////////////////////////
-// Spread Operatir (...)
+// Spread Operator (...)
 const arr = [5, 6, 7];
 
 const newBadArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -193,7 +251,7 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menu);
 
 // The spread operators just doesn't works in arrays alone BUT it also works on iterables
-// Iterables - are arrays, strings, maps, sets but NOT Objects
+// Iterables - are arrays, strings, maps, sets, but NOT Objects
 const str = 'Sulayman';
 const strLetters = [...str, ' ', 'A.'];
 console.log(...str);
@@ -214,6 +272,42 @@ console.log(newRestaurant);
 
 //copyObject
 const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Calisto Mia';
+restaurantCopy.name = 'Segun Adebayo';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
+*/
+
+/*
+////////////////////
+// Short Circuiting
+console.log(3 || 'Sulayman'); //Short Circuting
+console.log('Sulayman' || 3); //Short Circuting
+console.log(0 || true);
+console.log(undefined || null);
+
+console.log('----- AND -----');
+console.log(0 && 'Sulayman');
+console.log(7 && 'Sulayman');
+// if (('Hi' && 23 && null && 'Sulayman') === false) {
+//   console.log(`Yes it is false`);
+// } else {
+//   console.log(`No it is not false`);
+// }
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'pizza');
+}
+
+restaurant.numGuest = 0;
+const guests = restaurant.numGuest || 25;
+console.log(guests);
+
+////////////////////
+//Nullish coalescencing Operator
+// It is an operator that was introduce in ES2020
+// It work with nullish values and NOT falsy values
+// Nullish: null and undefined (NOT 0 or '')
+
+const guestCorrect = restaurant.numGuest ?? 25;
+console.log(guestCorrect);
+*/
