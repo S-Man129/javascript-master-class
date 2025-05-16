@@ -90,6 +90,142 @@ const restaurant = {
   },
 };
 
+////////////////////////////////
+// MAP Data Structure
+const map = new Map();
+map.set('name', 'Sulayman Adebayo');
+map.set(1, 'Maryam');
+
+console.log(map.get('name'));
+map
+  .set('food', ['rice', 'beans', 'salad'])
+  .set(true, 'We are open')
+  .set(false, 'We are closed')
+  .set('open', 11)
+  .set('close', 22);
+
+const time = 23;
+console.log(map.get(time > map.get('open') && time < map.get('close')));
+// map.clear();
+map.set(document.querySelector('h1'), 'Main heading');
+console.log(map);
+
+console.log(map.has('food'));
+
+// Map Iteration
+const question = new Map([
+  ['question', 'What is the best programming language in 2025?'],
+  [1, 'Java'],
+  [2, 'C'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+
+console.log(question);
+
+console.log(Object.entries(openingHours));
+
+const hourMap = new Map(Object.entries(openingHours));
+console.log(hourMap);
+
+// Looping through a Map
+console.log(question.get('question1'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+// const answer = Number(prompt('Your Answer'));
+const answer = 3;
+// const result =
+//   question.get('correct') === answer ? question.get(true) : question.get(false);
+// console.log(result);
+console.log(question.get(question.get('correct') === answer));
+
+// Converting map to array
+console.log([...question]);
+// console.log([...question.entries()]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
+
+///////////////////////////
+// SET - Set is collection of unique values and does not have duplicate
+/*
+const orderSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Risotto',
+  'Pizza',
+  'Pasta',
+  'Risotto',
+]);
+
+console.log(orderSet);
+console.log(new Set('Sulayman'));
+
+orderSet.add('Garlic Bread');
+console.log(orderSet.has('Risotto'));
+console.log(orderSet.has('Spaghetti'));
+orderSet.delete('Pizza');
+// orderSet.clear();
+console.log(orderSet);
+
+// Sets are iterables
+for (const order of orderSet) console.log(order);
+
+//Example
+const staff = ['waiter', 'chef', 'manager', 'waiter', 'chef', 'waiter'];
+console.log(staff);
+
+// Conveting a set to an array, using the spread operator
+// const uniqueStaff = new Set(staff);
+const uniqueStaff = [...new Set(staff)];
+console.log(uniqueStaff);
+*/
+
+//////////////////////////////////////
+// More Operations to make sets useful!
+/*
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const mexicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+const commonFoods = italianFoods.intersection(mexicanFoods);
+console.log('Intersection: ', commonFoods);
+console.log([...commonFoods]);
+
+const italianMexicanFusion = italianFoods.union(mexicanFoods);
+console.log('Union :', italianMexicanFusion);
+
+console.log([...new Set([...italianFoods, ...mexicanFoods])]);
+
+const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+console.log(uniqueItalianFoods);
+
+const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+console.log(uniqueMexicanFoods);
+
+const uniqueitalianAndMexicanFoods =
+  italianFoods.symmetricDifference(mexicanFoods);
+console.log(uniqueitalianAndMexicanFoods);
+
+console.log(italianFoods.isSupersetOf(mexicanFoods));
+*/
+
 /*
 ///////////////////////
 // Looping Object, Object keys, values and Entries
@@ -149,7 +285,7 @@ Hummels: 1,
 Lewandowski: 2 
 GOOD LUCK 
 �
-*/
+
 
 //Coding Challenge #2 - Solution
 const game = {
@@ -219,6 +355,7 @@ for (const player of game.scored) {
   scorers[player] = (scorers[player] || 0) + 1;
 }
 console.log(scorers);
+*/
 
 /*
 /////////////////////////////
