@@ -90,8 +90,13 @@ const restaurant = {
   },
 };
 
+/////////////////////////////////
+//
+
 ////////////////////////////////
 // MAP Data Structure
+
+/*
 const map = new Map();
 map.set('name', 'Sulayman Adebayo');
 map.set(1, 'Maryam');
@@ -147,6 +152,7 @@ console.log([...question]);
 // console.log([...question.entries()]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
+*/
 
 ///////////////////////////
 // SET - Set is collection of unique values and does not have duplicate
