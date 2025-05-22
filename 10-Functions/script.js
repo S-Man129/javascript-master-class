@@ -59,7 +59,7 @@ checkIn(flight, segun);
 
 ////////////////////////////
 // Function calling another function
-
+/*
 const oneWord = function (str) {
   return str.replace(/ /g, '-').toLowerCase();
 };
@@ -87,3 +87,22 @@ const high5 = function () {
 
 document.body.addEventListener('click', high5);
 ['sulayman', 'talent', 'chibuike'].forEach(high5);
+*/
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greetHey = greet('Hey');
+greetHey('Sulayman');
+greetHey('Adebayo');
+greetHey('Segun');
+
+// Rewriting using an arrow function
+const greetArrow = greeting => firstname => lastname => {
+  console.log(`${greeting} ${firstname} ${lastname}`);
+};
+
+greetArrow('Hi')('Adenike')('Adetokun');
